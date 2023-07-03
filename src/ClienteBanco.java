@@ -3,15 +3,17 @@ public abstract class ClienteBanco implements Verifica {
     private String nome = "";
     private Endereco ender = new Endereco();
 
-    public abstract void verifiDoc();
+
 
     public int getNumeroConta() {
         return numeroConta;
     }
 
-    public void setNumeroConta(int numeroConta) {
-        if(numeroConta >=0){
+    public void setNumeroConta(int numeroConta) throws NumException {
+        if (numeroConta >= 0) {
             this.numeroConta = numeroConta;
+        } else {
+            throw new NumException();
         }
     }
 
@@ -41,5 +43,4 @@ public abstract class ClienteBanco implements Verifica {
             System.out.println("Número inválido");
         }
     }
-
 }
